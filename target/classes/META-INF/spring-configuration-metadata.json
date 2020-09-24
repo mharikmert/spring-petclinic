@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "myprefix",
+      "type": "petclinic.Properties",
+      "sourceType": "petclinic.Properties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "myprefix.new-property",
+      "type": "java.lang.Boolean",
+      "sourceType": "petclinic.Properties",
+      "defaultValue": false
+    }
+  ],
+  "hints": []
+}
