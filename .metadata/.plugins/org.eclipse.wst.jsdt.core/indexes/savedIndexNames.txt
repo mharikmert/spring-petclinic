@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/mharikmert/github/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2405537531.index
+2876195636.index
+98042507.index
+3371362320.index
+622937056.index
+2934175102.index

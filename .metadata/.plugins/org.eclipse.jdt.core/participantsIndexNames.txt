@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+/home/mharikmert/github/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1459117227.index
+/Spring-PetClinic/src/main/java

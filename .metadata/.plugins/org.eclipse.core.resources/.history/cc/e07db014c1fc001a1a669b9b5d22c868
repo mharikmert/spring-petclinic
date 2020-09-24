@@ -1,0 +1,5 @@
+spring.mvc.view.prefix = /WEB-INF/jsp/
+spring.mvc.view.suffix = .jsp
+
+spring.resources.chain.strategy.content.enabled=true 
+spring.thymeleaf.enabled = false
