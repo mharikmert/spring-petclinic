@@ -2,6 +2,7 @@ package petclinic.Model;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Owner {
@@ -10,6 +11,16 @@ public class Owner {
     private String lastName;
     private Date birthDate;
     private Set<Pet> pets = new HashSet<>();
+    private List<Pet> petList;
+
+    public List<Pet> getPetList() {
+        return petList;
+    }
+
+    public void setPetList(List<Pet> petList) {
+        this.petList = petList;
+    }
+
     public Owner(){
 
     }
