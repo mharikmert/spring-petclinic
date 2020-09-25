@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import petclinic.Exceptions.OwnerNotFoundException;
+import petclinic.Model.Pet;
 import petclinic.Service.PetClinicService;
 import petclinic.Model.Owner;
 
@@ -26,7 +27,19 @@ public class PetClinicRestController {
 	//Rest API
     @Autowired
     private PetClinicService petClinicService;
-    
+
+   @RequestMapping(method = RequestMethod.GET, value = "/pets")
+   public ResponseEntity<List<Pet>> getPets(){
+   		List<Owner> owners = petClinicService.findOwners();
+   		List<Pet> pets = null;
+   		int i = 0;
+	   for (Owner owner : owners) {
+	   		Pet pet = new Pet();
+	   		pet.setOwner(petClinicService.findOwner(owner.getId()));
+		    pets.add(pet);
+	   }
+	   return ResponseEntity.ok(pets);
+   }
     @RequestMapping(method = RequestMethod.GET, value = "/owners")
     public ResponseEntity<List<Owner>> getOwners(){
         List<Owner> owners = petClinicService.findOwners();
