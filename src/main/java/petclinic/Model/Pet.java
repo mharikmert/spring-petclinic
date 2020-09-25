@@ -5,6 +5,7 @@ public class Pet {
     private String lastName;
     private Owner owner;
 
+    public Pet(){}
     public Pet(String firstName, String lastName, Long id){
         this.lastName = lastName;
         this.firstName = firstName;
