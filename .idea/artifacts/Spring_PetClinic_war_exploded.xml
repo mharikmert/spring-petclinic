@@ -35,7 +35,6 @@
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-rest:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-rest-webmvc:3.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-rest-core:3.3.4.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.atteo:evo-inflector:1.2.2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.2" />
@@ -86,6 +85,11 @@
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-annotations-api:9.0.38" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.200" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:3.4.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.9.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
