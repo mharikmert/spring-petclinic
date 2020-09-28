@@ -11,6 +11,7 @@ import petclinic.Model.Owner;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
 @Repository("ownerRepository")
 public class OwnerRepositoryJdbcImpl implements OwnerRepository {
     @Autowired
@@ -28,19 +29,20 @@ public class OwnerRepositoryJdbcImpl implements OwnerRepository {
     };
     @Override
     public List<Owner> findAll() {
-        String sql = "select id, first_name, last_name from t_owner";
+        String sql = "select id, first_name, last_name from T_OWNER";
         return jdbcTemplate.query(sql, rowMapper);
     }
 
     @Override
     public Owner findById(Long id) {
-        String sql = "select id , first_name, last_name from t_owner where id = ?"; // selecting all the ids
+        String ownerID = String.valueOf(id);
+        String sql = "select id , first_name, last_name from T_OWNER where id =" + ownerID; // selecting all the ids
         return DataAccessUtils.singleResult(jdbcTemplate.query(sql, rowMapper));
     }
 
     @Override
     public List<Owner> findByLastName(String lastName) {
-        String sql = "select id, first_name, last_name from t_owner where last_name like ?"; // selecting all the last_names
+        String sql = "select id, first_name, last_name from T_OWNER where last_name like "; // selecting all the last_names
         return jdbcTemplate.query(sql, rowMapper);
     }
 
