@@ -3,21 +3,29 @@ package petclinic.Service.PetClinicServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import petclinic.DAO.OwnerRepository;
+import petclinic.DAO.PetRepository;
 import petclinic.Exceptions.OwnerNotFoundException;
 import petclinic.Service.PetClinicService;
 
 import petclinic.Model.Owner;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class PetClinicServiceImpl implements PetClinicService {
-    @Autowired
-    private OwnerRepository ownerRepository;
 
+    private OwnerRepository ownerRepository;
+    private PetRepository petRepository;
+
+    @Autowired
     public void setOwnerRepository(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
     }
 
+    @Autowired
+    public void setPetRepository(PetRepository petRepository) {this.petRepository = petRepository;}
     @Override
     public List<Owner> findOwners() {
         return ownerRepository.findAll();
@@ -35,7 +43,7 @@ public class PetClinicServiceImpl implements PetClinicService {
         return owner;
     }
     @Override
-    public void create(Owner owner) {
+    public void createOwner(Owner owner) {
         ownerRepository.createOwner(owner);
     }
     @Override
@@ -43,7 +51,9 @@ public class PetClinicServiceImpl implements PetClinicService {
         return ownerRepository.updateOwner(owner);
     }
     @Override
-    public void delete(Long id) {
-        ownerRepository.deleteOwner(id);
+    public void deleteOwner(Long id) {
+        petRepository.deleteByOwnerId(id); // deleting pets first
+        ownerRepository.deleteOwner(id); //then delete the owner
+
     }
 }

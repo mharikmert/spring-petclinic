@@ -1,15 +1,31 @@
 package petclinic.Model;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "T_PET")
 public class Pet {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "petClinicSeqGen")
+    @SequenceGenerator(name = "petClinicSeqGen", sequenceName = "petclinic_sequence")
     private Long id;
-    private String firstName;
-    private String lastName;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "birth_date")
+    private Date birthDate;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
 
     public Pet(){}
-    public Pet(String firstName, String lastName, Long id){
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.id = id;
+    public Pet(Long id, String name, Date birthDate){
+        this.id  = id;
+        this.name =name;
+        this.birthDate = birthDate;
     }
 
     public Long getId() {
@@ -20,22 +36,6 @@ public class Pet {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public Owner getOwner() {
         return owner;
     }
@@ -43,14 +43,20 @@ public class Pet {
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
-
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", owner=" + owner +
-                '}';
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
 }

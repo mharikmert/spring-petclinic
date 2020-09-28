@@ -25,23 +25,27 @@ import java.util.List;
 @RequestMapping("/rest")
 public class PetClinicRestController {
 	//Rest API
-    @Autowired
     private PetClinicService petClinicService;
+	@Autowired
+	public void setPetClinicService(PetClinicService petClinicService) {
+		this.petClinicService = petClinicService;
+	}
 
-   @RequestMapping(method = RequestMethod.GET, value = "/pets")
-   public ResponseEntity<List<Pet>> getPets(){
-   		List<Owner> owners = petClinicService.findOwners();
-   		List<Pet> pets = null;
-   		int i = 0;
-	   for (Owner owner : owners) {
-	   		Pet pet = new Pet();
-	   		pet.setOwner(petClinicService.findOwner(owner.getId()));
-		    pets.add(pet);
-	   }
-	   return ResponseEntity.ok(pets);
-   }
+	//   @RequestMapping(method = RequestMethod.GET, value = "/pets")
+//   public ResponseEntity<List<Pet>> getPets(){
+//   		List<Owner> owners = petClinicService.findOwners();
+//   		List<Pet> pets = null;
+//   		int i = 0;
+//	   for (Owner owner : owners) {
+//	   		Pet pet = new Pet();
+//	   		pet.setOwner(petClinicService.findOwner(owner.getId()));
+//		    pets.add(pet);
+//	   }
+//	   return ResponseEntity.ok(pets);
+//   }
     @RequestMapping(method = RequestMethod.GET, value = "/owners")
     public ResponseEntity<List<Owner>> getOwners(){
+		petClinicService.deleteOwner(1L);
         List<Owner> owners = petClinicService.findOwners();
         return ResponseEntity.ok(owners);
     }
@@ -95,7 +99,7 @@ public class PetClinicRestController {
     @RequestMapping(method = RequestMethod.POST, value = "/owner")
     public ResponseEntity <URI> createOwner(@RequestBody Owner owner){
     	try {
-    		petClinicService.create(owner);
+    		petClinicService.createOwner(owner);
         	Long id = owner.getId();
         	URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
     		return ResponseEntity.created(location).build();
@@ -106,7 +110,7 @@ public class PetClinicRestController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/owner/{id}")
     public ResponseEntity<?> deleteOwner(@PathVariable("id") Long id){
 		try {
-			petClinicService.delete(id);
+			petClinicService.deleteOwner(id);
 			return ResponseEntity.ok().build();
 	    	
 		}catch(OwnerNotFoundException ex) {

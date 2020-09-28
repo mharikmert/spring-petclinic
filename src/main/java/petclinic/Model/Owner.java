@@ -1,25 +1,28 @@
 package petclinic.Model;
 
-import java.util.Date;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
+@Entity
+@Table(name = "T_OWNER")
+@XmlRootElement
 public class Owner {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "petClinicSeqGen")
+    @SequenceGenerator(name = "petClinicSeqGen", sequenceName = "petclinic_sequence")
     private Long id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
-    private Date birthDate;
+
+    @OneToMany(mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
-    private List<Pet> petList;
-
-    public List<Pet> getPetList() {
-        return petList;
-    }
-
-    public void setPetList(List<Pet> petList) {
-        this.petList = petList;
-    }
 
     public Owner(){
 
@@ -53,13 +56,6 @@ public class Owner {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
     public Set<Pet> getPets() {
         return pets;
     }
@@ -73,7 +69,6 @@ public class Owner {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
                 '}';
     }
 }

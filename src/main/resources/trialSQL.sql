@@ -1,0 +1,1 @@
+delete from T_OWNER where id = 11;
