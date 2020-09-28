@@ -95,7 +95,7 @@ public class PetClinicRestController {
     @RequestMapping(method = RequestMethod.POST, value = "/owner")
     public ResponseEntity <URI> createOwner(@RequestBody Owner owner){
     	try {
-    		petClinicService.createOwner(owner);
+    		petClinicService.create(owner);
         	Long id = owner.getId();
         	URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
     		return ResponseEntity.created(location).build();
@@ -106,7 +106,7 @@ public class PetClinicRestController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/owner/{id}")
     public ResponseEntity<?> deleteOwner(@PathVariable("id") Long id){
 		try {
-			petClinicService.deleteOwner(id);
+			petClinicService.delete(id);
 			return ResponseEntity.ok().build();
 	    	
 		}catch(OwnerNotFoundException ex) {
