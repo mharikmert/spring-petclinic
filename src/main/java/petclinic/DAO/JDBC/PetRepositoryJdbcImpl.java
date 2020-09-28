@@ -23,7 +23,6 @@ public class PetRepositoryJdbcImpl implements PetRepository {
             Pet pet = new Pet();
             pet.setId(resultSet.getLong("id"));
             pet.setFirstName(resultSet.getString("first_name"));
-            pet.setLastName(resultSet.getString("last_name"));
             return pet;
         }
     };
