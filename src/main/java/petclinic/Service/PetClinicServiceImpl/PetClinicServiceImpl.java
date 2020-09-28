@@ -35,7 +35,7 @@ public class PetClinicServiceImpl implements PetClinicService {
         return owner;
     }
     @Override
-    public void createOwner(Owner owner) {
+    public void create(Owner owner) {
         ownerRepository.createOwner(owner);
     }
     @Override
@@ -43,7 +43,7 @@ public class PetClinicServiceImpl implements PetClinicService {
         return ownerRepository.updateOwner(owner);
     }
     @Override
-    public void deleteOwner(Long id) {
+    public void delete(Long id) {
         ownerRepository.deleteOwner(id);
     }
 }
