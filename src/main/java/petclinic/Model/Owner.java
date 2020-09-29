@@ -1,5 +1,7 @@
 package petclinic.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashSet;
@@ -7,7 +9,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "t_owner")
-@XmlRootElement
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "petClinicSeqGen")
