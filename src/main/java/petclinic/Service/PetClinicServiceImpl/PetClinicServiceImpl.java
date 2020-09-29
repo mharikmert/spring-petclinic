@@ -2,17 +2,19 @@ package petclinic.Service.PetClinicServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import petclinic.DAO.OwnerRepository;
 import petclinic.DAO.PetRepository;
 import petclinic.Exceptions.OwnerNotFoundException;
 import petclinic.Service.PetClinicService;
 import petclinic.Model.Owner;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional // all public methods become transactional
+@Transactional// all public methods become transactional
 public class PetClinicServiceImpl implements PetClinicService {
 
     private OwnerRepository ownerRepository;
@@ -27,17 +29,17 @@ public class PetClinicServiceImpl implements PetClinicService {
     public void setPetRepository(PetRepository petRepository) {this.petRepository = petRepository;}
 
     @Override
-//    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Owner> findOwners() {
         return ownerRepository.findAll();
     }
-    
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Owner> findOwners(String lastName) {
         return ownerRepository.findByLastName(lastName);
     }
-
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Owner findOwner(Long id) throws OwnerNotFoundException {
         Owner owner = ownerRepository.findById(id);
         if(owner == null) throw new OwnerNotFoundException("Owner not found");
