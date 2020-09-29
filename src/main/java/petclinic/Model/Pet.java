@@ -1,6 +1,8 @@
 package petclinic.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
 import java.util.Date;
