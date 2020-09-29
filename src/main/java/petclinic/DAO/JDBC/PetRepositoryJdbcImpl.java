@@ -1,5 +1,6 @@
 package petclinic.DAO.JDBC;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import petclinic.DAO.PetRepository;
@@ -12,19 +13,10 @@ public class PetRepositoryJdbcImpl implements PetRepository {
 
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-    //    RowMapper<Pet> rowMapper = new RowMapper<Pet>() {
-//        @Override
-//        public Pet mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-//            Pet pet = new Pet();
-//            pet.setId(resultSet.getLong("id"));
-//            pet.setFirstName(resultSet.getString("first_name"));
-//            return pet;
-//        }
-//    };
 
     @Override
     public Pet findById(Long id) {
@@ -37,8 +29,7 @@ public class PetRepositoryJdbcImpl implements PetRepository {
     }
 
     @Override
-    public void create(Pet pet) {
-    }
+    public void create(Pet pet) { }
 
     @Override
     public Pet update(Pet pet) {
@@ -46,9 +37,7 @@ public class PetRepositoryJdbcImpl implements PetRepository {
     }
 
     @Override
-    public void delete(Long id) {
-
-    }
+    public void delete(Long id) { }
 
     @Override
     public void deleteByOwnerId(Long ownerId) {

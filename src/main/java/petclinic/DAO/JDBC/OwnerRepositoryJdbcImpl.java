@@ -15,6 +15,7 @@ public class OwnerRepositoryJdbcImpl implements OwnerRepository {
 
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
