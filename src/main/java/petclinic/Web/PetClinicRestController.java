@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import petclinic.Exceptions.OwnerNotFoundException;
-import petclinic.Model.Pet;
 import petclinic.Service.PetClinicService;
 import petclinic.Model.Owner;
 
@@ -30,7 +29,6 @@ public class PetClinicRestController {
 	public void setPetClinicService(PetClinicService petClinicService) {
 		this.petClinicService = petClinicService;
 	}
-
 	//   @RequestMapping(method = RequestMethod.GET, value = "/pets")
 //   public ResponseEntity<List<Pet>> getPets(){
 //   		List<Owner> owners = petClinicService.findOwners();
@@ -45,7 +43,6 @@ public class PetClinicRestController {
 //   }
     @RequestMapping(method = RequestMethod.GET, value = "/owners")
     public ResponseEntity<List<Owner>> getOwners(){
-		petClinicService.deleteOwner(1L);
         List<Owner> owners = petClinicService.findOwners();
         return ResponseEntity.ok(owners);
     }
@@ -74,7 +71,7 @@ public class PetClinicRestController {
     		Link create  = ControllerLinkBuilder.linkTo(PetClinicRestController.class).slash("/owner/" + id).withRel("create");
     		Link update  = ControllerLinkBuilder.linkTo(PetClinicRestController.class).slash("/owner/" + id).withRel("update");
     		Link delete  = ControllerLinkBuilder.linkTo(PetClinicRestController.class).slash("/owner/" + id).withRel("delete");
-			EntityModel<Owner> resource = new EntityModel<Owner>(owner, self, create, update, delete);
+			EntityModel<Owner> resource = new EntityModel<>(owner, self, create, update, delete);
 			return ResponseEntity.ok(resource);
     	}catch(OwnerNotFoundException ex){
     		return ResponseEntity.notFound().build();

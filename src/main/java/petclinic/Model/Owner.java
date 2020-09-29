@@ -1,13 +1,12 @@
 package petclinic.Model;
 
-
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "T_OWNER")
+@Table(name = "t_owner")
 @XmlRootElement
 public class Owner {
     @Id

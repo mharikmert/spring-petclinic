@@ -1,12 +1,10 @@
 package petclinic;
 
 import java.net.URI;
-import java.util.Objects;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.springframework.web.client.RestClientException;
 import petclinic.Model.Owner;
 
@@ -18,12 +16,15 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootTest
 class ApplicationTests {
-	public static final String restLocation ="http://localhost:8080/rest"; 
-	@Autowired
+	public static final String restLocation ="http://localhost:8080/rest";
 	private static RestTemplate restTemplate;
-	
-	@BeforeEach
-	void setUp() {
+
+	@Autowired
+	public static void setRestTemplate(RestTemplate restTemplate) {
+		ApplicationTests.restTemplate = restTemplate;
+	}
+	@BeforeAll
+	static void setUp() {
 		restTemplate = new RestTemplate();
 	}
 	
@@ -36,9 +37,9 @@ class ApplicationTests {
 	}
 	@Test
 	void testUpdateOwner() {
-		Owner owner = restTemplate.getForObject(restLocation + "/owner/3", Owner.class);
+		Owner owner = restTemplate.getForObject(restLocation + "/owner/1", Owner.class);
 		assert owner != null;
-		MatcherAssert.assertThat(owner.getFirstName(), Matchers.equalTo("user3"));
+		MatcherAssert.assertThat(owner.getFirstName(), Matchers.equalTo("Ziya"));
 
 		owner.setFirstName("UpdatedUser3");
 		owner.setLastName("UpdatedLastName3");

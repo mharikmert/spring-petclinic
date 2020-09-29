@@ -17,13 +17,11 @@ public class PetRepositoryJpaImpl  implements PetRepository {
     public Pet findById(Long id) {
         return entityManager.find(Pet.class , id);
     }
-
     @Override
     public List<Pet> findByOwnerId(Long ownerId) {
         return entityManager.createQuery("from Pet where owner.id = :ownerId", Pet.class).
                 setParameter("ownerId", ownerId).getResultList();
     }
-
     @Override
     public void create(Pet pet) {
         entityManager.persist(pet);

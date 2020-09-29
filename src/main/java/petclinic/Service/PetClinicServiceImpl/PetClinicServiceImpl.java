@@ -6,14 +6,13 @@ import petclinic.DAO.OwnerRepository;
 import petclinic.DAO.PetRepository;
 import petclinic.Exceptions.OwnerNotFoundException;
 import petclinic.Service.PetClinicService;
-
 import petclinic.Model.Owner;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
+@Transactional // all public methods become transactional
 public class PetClinicServiceImpl implements PetClinicService {
 
     private OwnerRepository ownerRepository;
@@ -54,6 +53,7 @@ public class PetClinicServiceImpl implements PetClinicService {
     public void deleteOwner(Long id) {
         petRepository.deleteByOwnerId(id); // deleting pets first
         ownerRepository.deleteOwner(id); //then delete the owner
+        throw new RuntimeException("transactional rollback"); // throw an unchecked exception for rollback
 
     }
 }

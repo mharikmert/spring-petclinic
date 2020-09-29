@@ -52,7 +52,7 @@ public class PetRepositoryJdbcImpl implements PetRepository {
 
     @Override
     public void deleteByOwnerId(Long ownerId) {
-        String sql = "delete from T_PET where id =" + ownerId;
+        String sql = "delete from t_pet where id =" + ownerId;
         jdbcTemplate.update(sql , ownerId);
     }
 }

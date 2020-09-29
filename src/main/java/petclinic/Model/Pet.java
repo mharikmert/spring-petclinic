@@ -1,14 +1,17 @@
 package petclinic.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "T_PET")
+@Table(name = "t_pet")
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "petClinicSeqGen")
     @SequenceGenerator(name = "petClinicSeqGen", sequenceName = "petclinic_sequence")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
@@ -17,6 +20,7 @@ public class Pet {
     @Column(name = "birth_date")
     private Date birthDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
