@@ -25,11 +25,13 @@ public class PetClinicServiceImpl implements PetClinicService {
 
     @Autowired
     public void setPetRepository(PetRepository petRepository) {this.petRepository = petRepository;}
+
     @Override
+//    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Owner> findOwners() {
         return ownerRepository.findAll();
     }
-
+    
     @Override
     public List<Owner> findOwners(String lastName) {
         return ownerRepository.findByLastName(lastName);
@@ -53,7 +55,7 @@ public class PetClinicServiceImpl implements PetClinicService {
     public void deleteOwner(Long id) {
         petRepository.deleteByOwnerId(id); // deleting pets first
         ownerRepository.deleteOwner(id); //then delete the owner
-        throw new RuntimeException("transactional rollback"); // throw an unchecked exception for rollback
+        //throw new RuntimeException("transactional rollback"); // throw an unchecked exception for rollback
 
     }
 }
