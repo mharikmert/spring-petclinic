@@ -183,6 +183,5 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.21" level="project" />
     <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13" level="project" />
   </component>
 </module>
