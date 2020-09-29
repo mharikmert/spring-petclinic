@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="Spring-PetClinic:ejb exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Spring_PetClinic_ejb_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Spring-PetClinic/ejb/EJB" />
+      <element id="javaee-facet-classes" facet="Spring-PetClinic/ejb/EJB" />
+    </root>
+  </artifact>
+</component>
