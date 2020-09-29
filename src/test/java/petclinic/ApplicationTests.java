@@ -63,13 +63,12 @@ class ApplicationTests {
 	}
 	@Test
 	public void testDeleteOwner() {
-		restTemplate.delete(restLocation + "/owner/1", Owner.class);
-		System.out.println("owner is deleted");
+		restTemplate.delete(restLocation + "/owner/2", Owner.class);
 		try {
-			restTemplate.getForEntity(restLocation + "/owner/1", Owner.class);
+			restTemplate.getForEntity(restLocation + "/owner/2", Owner.class);
 			System.out.println("should have not returned the message");
-		}catch(RestClientException ex) {
-			ex.printStackTrace();
+		}catch (RestClientException ex){
+			System.out.println("User is not found");
 		}
 	}
 
