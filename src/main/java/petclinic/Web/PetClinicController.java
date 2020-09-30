@@ -3,7 +3,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import petclinic.Service.PetClinicService;
 
@@ -16,6 +15,13 @@ public class PetClinicController {
     @Autowired
     public void setPetClinicService(PetClinicService petClinicService){
         this.petClinicService = petClinicService;
+    }
+
+    @RequestMapping("/login.html")
+    public ModelAndView loginPage(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("login");
+        return mav;
     }
 
     @RequestMapping("/owners")
