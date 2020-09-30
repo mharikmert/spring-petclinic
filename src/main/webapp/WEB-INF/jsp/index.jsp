@@ -1,7 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
 <body>
-<a href="<c:url value="/logout" />">Logout</a>
+<h1>Logout page</h1>
+<form action="logout" method="post">
+    <input type="submit" value="Logout"> <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+</form>
 </body>
 </html>
