@@ -9,8 +9,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
 
-    @Autowired
     private UserDetailsService userDetailsService;
+
+    @Autowired
+    public void setUserDetailsService(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
@@ -31,5 +35,6 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
             .loginProcessingUrl("/login") //submit uri
             .failureForwardUrl("/login.html?loginFailed=true"); //authentication failure
         http.rememberMe().userDetailsService(userDetailsService); //remember be ability
+        http.httpBasic(); // enabling basic authentication
     }
 }
