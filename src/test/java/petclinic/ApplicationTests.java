@@ -1,10 +1,12 @@
 package petclinic;
 
 import java.net.URI;
+import java.util.Collections;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
+import org.springframework.http.client.support.BasicAuthorizationInterceptor;
 import org.springframework.web.client.RestClientException;
 import petclinic.Model.Owner;
 
@@ -26,11 +28,13 @@ class ApplicationTests {
 	@BeforeAll
 	static void setUp() {
 		restTemplate = new RestTemplate();
+		BasicAuthorizationInterceptor basicAuthorizationInterceptor = new BasicAuthorizationInterceptor("mharikmert", "password");
+		restTemplate.setInterceptors(Collections.singletonList(basicAuthorizationInterceptor));
 	}
 	
 	@Test
 	void testGetOwnerById() {
-		ResponseEntity <Owner> response = restTemplate.getForEntity(restLocation + "/owner/2",Owner.class);
+		ResponseEntity <Owner> response = restTemplate.getForEntity(  "http://localhost:8085/rest/owner/2",Owner.class);
 		MatcherAssert.assertThat(response.getStatusCodeValue(), Matchers.equalTo(200)); // success
 //		MatcherAssert.assertThat(Objects.requireNonNull(response.getBody()).getFirstName(), Matchers.equalTo("user2"));
 
