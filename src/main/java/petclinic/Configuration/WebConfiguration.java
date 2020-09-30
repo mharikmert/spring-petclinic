@@ -7,7 +7,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 class WebConfiguration implements WebMvcConfigurer {
-    //comment
     @Bean
     public InternalResourceViewResolver viewResolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
