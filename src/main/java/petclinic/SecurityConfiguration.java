@@ -10,15 +10,15 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 /* open sources path's for any user*/
-//                .antMatchers("/**/favicon.ico",
-//                        "/css/**",
-//                        "/js/**",
-//                        "/images/**",
-//                        "webjars/**").permitAll()
+                .antMatchers("/**/favicon.ico",
+                        "/css/**",
+                        "/js/**",
+                        "/images/**",
+                        "webjars/**").permitAll()
                 /* Request methods are accessed by just authenticated users*/
                 .anyRequest().authenticated();
 
-        /* unauthenticated users redirects login page by default*/
+        /* unauthenticated users redirect login page by default*/
         http.formLogin();
     }
 }
