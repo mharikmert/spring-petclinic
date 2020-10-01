@@ -35,6 +35,9 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
                         "/images/**",
                         "webjars/**",
                         "/login.html").permitAll()
+                /* pages authentication according to user roles*/
+                .antMatchers("/rest/**").access("hasRole('EDITOR')")
+                .antMatchers("/actuator/**").access("hasRole('ADMIN')")
                 /* Request methods are accessed by just authenticated users*/
                 .anyRequest().authenticated();
 
