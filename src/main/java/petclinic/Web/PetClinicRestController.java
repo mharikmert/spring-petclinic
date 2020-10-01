@@ -29,21 +29,9 @@ public class PetClinicRestController {
 	public void setPetClinicService(PetClinicService petClinicService) {
 		this.petClinicService = petClinicService;
 	}
-	//   @RequestMapping(method = RequestMethod.GET, value = "/pets")
-//   public ResponseEntity<List<Pet>> getPets(){
-//   		List<Owner> owners = petClinicService.findOwners();
-//   		List<Pet> pets = null;
-//   		int i = 0;
-//	   for (Owner owner : owners) {
-//	   		Pet pet = new Pet();
-//	   		pet.setOwner(petClinicService.findOwner(owner.getId()));
-//		    pets.add(pet);
-//	   }
-//	   return ResponseEntity.ok(pets);
-//   }
     @RequestMapping(method = RequestMethod.GET, value = "/owners")
     public ResponseEntity<List<Owner>> getOwners(){
-        List<Owner> owners = petClinicService.findOwners();
+		List<Owner> owners = petClinicService.findOwners();
         return ResponseEntity.ok(owners);
     }
     
@@ -71,7 +59,7 @@ public class PetClinicRestController {
     		Link create  = ControllerLinkBuilder.linkTo(PetClinicRestController.class).slash("/owner/" + id).withRel("create");
     		Link update  = ControllerLinkBuilder.linkTo(PetClinicRestController.class).slash("/owner/" + id).withRel("update");
     		Link delete  = ControllerLinkBuilder.linkTo(PetClinicRestController.class).slash("/owner/" + id).withRel("delete");
-			EntityModel<Owner> resource = new EntityModel<Owner>(owner, self, create, update, delete);
+			EntityModel<Owner> resource = new EntityModel<>(owner, self, create, update, delete);
 			return ResponseEntity.ok(resource);
     	}catch(OwnerNotFoundException ex){
     		return ResponseEntity.notFound().build();
