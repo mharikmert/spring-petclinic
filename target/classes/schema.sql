@@ -1,3 +1,12 @@
+create table users(
+    username varchar(128) not null primary key ,
+    password varchar(512) not null,
+    enabled boolean
+);
+create table authorities(
+    username varchar(128),
+    authority varchar(128)
+);
 CREATE TABLE t_owner(
     id BIGINT NOT NULL,
     first_name VARCHAR(255),
