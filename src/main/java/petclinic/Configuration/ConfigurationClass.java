@@ -8,8 +8,10 @@ import javax.annotation.PostConstruct;
 
 @Configuration
 public class ConfigurationClass {
-    @Autowired // defining properties with autowired
+
     private Properties getProperty;
+    @Autowired
+    public void setGetProperty(Properties getProperty){this.getProperty = getProperty;};
 
     @PostConstruct // see the method content while initializing
     public void anyName(){
