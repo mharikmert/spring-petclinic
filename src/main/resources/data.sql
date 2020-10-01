@@ -1,6 +1,6 @@
-insert into users values ('user1', '{noop}password', true);
-insert into users values ('user2', '{noop}password', true);
-insert into users values ('user3', '{noop}password', true);
+insert into users values ('user1', '{bcrypt}$2a$10$8teIGyjion2Qd0kX49WnvOyvcLlS4Hw8aPTJTRD2WF5Mbvb/fdw92', true);
+insert into users values ('user2', '{bcrypt}$2a$10$YHhjeuAcSunsS3dGQM02JOamURNp4W5RQIAEbXkpfJGLzppizzToi', true);
+insert into users values ('user3', '{bcrypt}$2a$10$718IPGtWfMxpAY.7BF0vR.EeyglbVacil93CgM0Qn98BWDXUFEMCG', true);
 
 insert into authorities values ('user1', 'ROLE_USER');
 insert into authorities values ('user2', 'ROLE_USER');
