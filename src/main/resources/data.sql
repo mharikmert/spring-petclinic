@@ -1,3 +1,14 @@
+insert into users values ('user1', '{noop}password', true);
+insert into users values ('user2', '{noop}password', true);
+insert into users values ('user3', '{noop}password', true);
+
+insert into authorities values ('user1', 'ROLE_USER');
+insert into authorities values ('user2', 'ROLE_USER');
+insert into authorities values ('user2', 'ROLE_EDITOR');
+insert into authorities values ('user3', 'ROLE_USER');
+insert into authorities values ('user3', 'ROLE_EDITOR');
+insert into authorities values ('user3', 'ROLE_ADMIN');
+
 INSERT INTO t_owner (id,first_name,last_name) VALUES (1, 'Ziya', 'Ferit');
 INSERT INTO t_owner (id,first_name,last_name) VALUES (2, 'Beşir', 'Dal');
 INSERT INTO t_owner (id,first_name,last_name) VALUES (3, 'Eda', 'Rize');
