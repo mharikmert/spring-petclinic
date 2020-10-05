@@ -10,21 +10,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import javax.sql.DataSource;
 
 @Configuration
-public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration  extends AbstractSecurityConfiguration {
 
     private UserDetailsService userDetailsService;
-    private DataSource dataSource;
+
 
     @Autowired
     public void setUserDetailsService(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
-
-    @Autowired
-    public void setDataSource(DataSource dataSource){
-        this.dataSource = dataSource;
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
@@ -36,7 +30,6 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
                         "webjars/**",
                         "/login.html").permitAll()
                 /* pages authentication according to user roles*/
-                .antMatchers("/rest/**").access("hasRole('EDITOR')")
                 .antMatchers("/actuator/**").access("hasRole('ADMIN')")
                 /* Request methods are accessed by just authenticated users*/
                 .anyRequest().authenticated();
@@ -47,12 +40,6 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
             .loginProcessingUrl("/login") //submit uri
             .failureForwardUrl("/login.html?loginFailed=true"); //authentication failure
         http.rememberMe().userDetailsService(userDetailsService); //remember be ability
-        http.httpBasic(); // enabling basic authentication
+//        http.httpBasic(); // enabling basic authentication
     }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource);
-    }
-
 }
