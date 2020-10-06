@@ -1,46 +1,44 @@
 package petclinic;
 
 import java.net.URI;
-import java.util.Collections;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeAll;
-import org.springframework.http.client.support.BasicAuthorizationInterceptor;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestClientException;
 import petclinic.Model.Owner;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@RunWith(SpringRunner.class)
+@ActiveProfiles("dev")
 class ApplicationTests {
 	public static final String restLocation ="http://localhost:8080/rest";
-	private static RestTemplate restTemplate;
 
 	@Autowired
-	public static void setRestTemplate(RestTemplate restTemplate) {
-		ApplicationTests.restTemplate = restTemplate;
+	private TestRestTemplate restTemplate;
+
+	@BeforeEach
+	public void setUp(){
+		restTemplate.withBasicAuth("user2","password");
 	}
-	@BeforeAll
-	static void setUp() {
-		restTemplate = new RestTemplate();
-		BasicAuthorizationInterceptor basicAuthorizationInterceptor = new BasicAuthorizationInterceptor("mharikmert", "password");
-		restTemplate.setInterceptors(Collections.singletonList(basicAuthorizationInterceptor));
-	}
-	
+
 	@Test
-	void testGetOwnerById() {
-		ResponseEntity <Owner> response = restTemplate.getForEntity(  "http://localhost:8085/rest/owner/2",Owner.class);
+	public void testGetOwnerById() {
+		ResponseEntity <Owner> response = restTemplate.getForEntity("http://localhost:8080/rest/owner/2",Owner.class);
 		MatcherAssert.assertThat(response.getStatusCodeValue(), Matchers.equalTo(200)); // success
 //		MatcherAssert.assertThat(Objects.requireNonNull(response.getBody()).getFirstName(), Matchers.equalTo("user2"));
-
 	}
 	@Test
-	void testUpdateOwner() {
+	public void testUpdateOwner() {
 		Owner owner = restTemplate.getForObject(restLocation + "/owner/1", Owner.class);
 		assert owner != null;
 		MatcherAssert.assertThat(owner.getFirstName(), Matchers.equalTo("Ziya"));
@@ -72,8 +70,7 @@ class ApplicationTests {
 			restTemplate.getForEntity(restLocation + "/owner/2", Owner.class);
 			System.out.println("should have not returned the message");
 		}catch (RestClientException ex){
-			System.out.println("User is not found");
+			ex.printStackTrace();
 		}
 	}
-
 }
