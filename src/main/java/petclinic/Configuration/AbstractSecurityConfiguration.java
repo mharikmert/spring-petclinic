@@ -10,10 +10,6 @@ public class AbstractSecurityConfiguration extends WebSecurityConfigurerAdapter 
     @Autowired
     private DataSource dataSource;
 
-//    @Autowired
-//    public void setDataSource(DataSource dataSource){
-//        this.dataSource = dataSource;
-//    }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource);
