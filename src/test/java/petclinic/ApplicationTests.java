@@ -6,10 +6,8 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestClientException;
 import petclinic.Model.Owner;
 
@@ -18,7 +16,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@RunWith(SpringRunner.class)
 @ActiveProfiles("dev")
 class ApplicationTests {
 	public static final String restLocation ="http://localhost:8080/rest";
@@ -28,17 +25,16 @@ class ApplicationTests {
 
 	@BeforeEach
 	public void setUp(){
-		restTemplate.withBasicAuth("user2","password");
-
+		restTemplate = restTemplate.withBasicAuth("user2","password");
 	}
 	@Test
 	public void testGetOwnerById() {
 		try{
 			ResponseEntity <Owner> response = restTemplate.getForEntity("http://localhost:8080/rest/owner/2",Owner.class);
 			MatcherAssert.assertThat(response.getStatusCodeValue(), Matchers.equalTo(200)); // success
+			System.out.println(response);
 		}
-		catch(RestClientException ex){
-			System.out.println("Rest Client Exception");
+		catch(RestClientException ex){ex.printStackTrace();
 		}
 	}
 	@Test
