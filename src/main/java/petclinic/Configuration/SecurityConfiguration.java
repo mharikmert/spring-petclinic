@@ -22,9 +22,9 @@ public class SecurityConfiguration  extends AbstractSecurityConfiguration {
                         "webjars/**",
                         "/login.html").permitAll()
                 /* pages authentication according to user roles*/
-                .antMatchers("/actuator/**").access("hasRole('ADMIN')")
+                .antMatchers("/actuator/**").access("hasRole('ADMIN')");
                 /* Request methods are accessed by just authenticated users*/
-                .anyRequest().authenticated();
+                //.anyRequest().authenticated();
 
         /* unauthenticated users redirect login page by default*/
         http.formLogin()
