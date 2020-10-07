@@ -1,5 +1,5 @@
 create table users(
-    username varchar(128) not null primary key ,
+    username varchar(128) not null primary key,
     password varchar(512) not null,
     enabled boolean
 );
@@ -9,8 +9,8 @@ create table authorities(
 );
 CREATE TABLE t_owner(
     id BIGINT NOT NULL,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255)
+    first_name VARCHAR(255) not null,
+    last_name VARCHAR(255) not null
 );            
 ALTER TABLE t_owner ADD CONSTRAINT CONSTRAINT_1 PRIMARY KEY(id);
 
