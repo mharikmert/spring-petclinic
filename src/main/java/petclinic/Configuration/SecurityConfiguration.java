@@ -22,9 +22,9 @@ public class SecurityConfiguration  extends AbstractSecurityConfiguration {
                         "webjars/**",
                         "/login.html").permitAll()
                 /* pages authentication according to user roles*/
-                .antMatchers("/actuator/**").access("hasRole('ADMIN')");
+                .antMatchers("/actuator/**").access("hasRole('ADMIN')")
                 /* Request methods are accessed by just authenticated users*/
-                //.anyRequest().authenticated();
+                .anyRequest().authenticated();
 
         /* unauthenticated users redirect login page by default*/
         http.formLogin()
@@ -32,6 +32,6 @@ public class SecurityConfiguration  extends AbstractSecurityConfiguration {
             .loginProcessingUrl("/login") //submit uri
             .failureForwardUrl("/login.html?loginFailed=true"); //authentication failure
         http.rememberMe().userDetailsService(userDetailsService); //remember be ability
-//        http.httpBasic(); // enabling basic authentication
+        http.httpBasic(); // enabling basic authentication
     }
 }
