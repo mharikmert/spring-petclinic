@@ -29,12 +29,10 @@ public class OwnerRepositoryJpaImpl  implements OwnerRepository {
         return entityManager.createQuery("from Owner where lastName = :lastName",Owner.class).
                 setParameter("lastName", lastName).getResultList();
     }
-
     @Override
     public void createOwner(Owner owner) {
-        entityManager.persist(owner);
+        entityManager.merge(owner); //
     }
-
     @Override
     public Owner updateOwner(Owner owner) {
         return entityManager.merge(owner);
