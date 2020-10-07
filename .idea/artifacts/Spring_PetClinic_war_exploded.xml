@@ -26,6 +26,8 @@
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.26" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-actuator-autoconfigure:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-actuator:2.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.2" />
           <element id="library" level="project" name="Maven: io.micrometer:micrometer-core:1.5.5" />
           <element id="library" level="project" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" />
@@ -34,6 +36,7 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-rest-webmvc:3.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-rest-core:3.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.atteo:evo-inflector:1.2.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.2" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-hateoas:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.hateoas:spring-hateoas:1.1.2.RELEASE" />
@@ -101,11 +104,8 @@
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-security:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.3.4.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.3.4.RELEASE" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.2" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.3.4.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
