@@ -1,4 +1,4 @@
-package petclinic;
+package petclinic.Web;
 
 import java.net.URI;
 
@@ -6,8 +6,6 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
@@ -21,7 +19,7 @@ import org.springframework.http.ResponseEntity;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ActiveProfiles("dev")
 @DirtiesContext //caching application context in class level
-class ApplicationTests {
+class ControllerTests {
 	public static final String restLocation ="http://localhost:8080/rest";
 
 	@Autowired
