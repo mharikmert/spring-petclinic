@@ -79,7 +79,7 @@ public class PetClinicRestController {
     	}catch(Exception ex) {
     		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     	}
-    	
+
     }
     @RequestMapping(method = RequestMethod.POST, value = "/owner")
     public ResponseEntity <URI> createOwner(@RequestBody Owner owner){
