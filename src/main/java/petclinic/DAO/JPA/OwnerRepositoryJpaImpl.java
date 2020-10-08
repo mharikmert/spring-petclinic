@@ -1,6 +1,7 @@
 package petclinic.DAO.JPA;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import petclinic.DAO.OwnerRepository;
 import petclinic.Model.Owner;
 
@@ -31,7 +32,7 @@ public class OwnerRepositoryJpaImpl  implements OwnerRepository {
     }
     @Override
     public void createOwner(Owner owner) {
-        entityManager.merge(owner); //
+        entityManager.merge(owner);
     }
     @Override
     public Owner updateOwner(Owner owner) {
