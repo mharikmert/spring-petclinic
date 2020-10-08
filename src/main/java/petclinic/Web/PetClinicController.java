@@ -31,7 +31,6 @@ public class PetClinicController {
         mav.setViewName("owners");
         return mav;
     }
-
     @RequestMapping(value =  {"/","index.html"})
     public ModelAndView index(){
         ModelAndView mav = new ModelAndView();
