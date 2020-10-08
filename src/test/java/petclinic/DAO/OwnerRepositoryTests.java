@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 
 @SpringBootTest
 @ActiveProfiles("dev")
-@Transactional // adding transaction ability to test class
+@Transactional
 public class OwnerRepositoryTests {
     @Autowired
     private OwnerRepository ownerRepository;
