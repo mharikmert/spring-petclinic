@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,11 +27,11 @@ public class OwnerRepositoryTests {
             ownerRepository.findAll();
     }
 
-    @Test @Rollback
-    public void deleteOwner(){
-           ownerRepository.deleteOwner(10L);
+    @Test @Commit
+    public void deleteOwner() { // fits owners lists to 10, other owners will be deleted
+        while (ownerRepository.findAll().size() > 10)
+            ownerRepository.deleteOwner(ownerRepository.findAll().get(ownerRepository.findAll().size()-1).getId());
     }
-
     @Test @Commit
     public void testCreateOwner(){
         Owner owner = new Owner("test","user", 10L);
@@ -40,8 +39,6 @@ public class OwnerRepositoryTests {
         owner2.setFirstName(null);
         owner2.setLastName(null);
         ownerRepository.createOwner(owner);
-        //Assertions.assertThrows(SQLGrammarException.class,() -> {
-    //ownerRepository.createOwner(owner);});
     }
     @Test //rollback default
     public void testUpdateOwner(){
