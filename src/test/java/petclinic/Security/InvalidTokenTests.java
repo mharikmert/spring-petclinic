@@ -29,7 +29,6 @@ public class InvalidTokenTests {
         //clear the authority in contextHolder for security
         SecurityContextHolder.clearContext();
     }
-
     @Test
     public void testFindOwners(){
         Assertions.assertThrows(AccessDeniedException.class, () -> {
