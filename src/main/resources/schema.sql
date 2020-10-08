@@ -8,7 +8,7 @@ create table authorities(
     authority varchar(128)
 );
 CREATE TABLE t_owner(
-    id BIGINT NOT NULL,
+    id BIGINT,
     first_name VARCHAR(255) not null,
     last_name VARCHAR(255) not null
 );            
@@ -19,7 +19,7 @@ CREATE TABLE t_pet(
     name VARCHAR(255),
     birth_date DATE,
     owner_id BIGINT
-);            
+);
 ALTER TABLE t_pet ADD CONSTRAINT CONSTRAINT_2 PRIMARY KEY(id);
 
 ALTER TABLE t_pet ADD  CONSTRAINT CONSTRAINT_3 FOREIGN KEY(owner_id)  REFERENCES t_owner(id);
