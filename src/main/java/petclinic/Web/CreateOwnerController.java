@@ -19,25 +19,9 @@ public class CreateOwnerController {
         return "createOwner";
     }
 
-    @ModelAttribute
-    public Owner initModel(){
-        return new Owner();
-    }
-
     @RequestMapping(value = "/owners/createOwner", method = RequestMethod.POST)
     public String handleCreateForm(@ModelAttribute Owner owner){
         petClinicService.createOwner(owner);
-        return "redirect:/owners";
-    }
-
-    @RequestMapping(value = "/owners/updateOwner", method = RequestMethod.GET)
-    public String updateOwner(){return "updateOwner";}
-
-    @ModelAttribute
-    public Owner updateModel() {return new Owner();}
-    @RequestMapping(value = "/owners/updateOwner", method = RequestMethod.POST)
-    public String handleUpdateForm(@ModelAttribute Owner owner){
-        petClinicService.update(owner);
         return "redirect:/owners";
     }
 
