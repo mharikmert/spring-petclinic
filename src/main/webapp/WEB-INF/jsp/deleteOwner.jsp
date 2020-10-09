@@ -1,16 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mharikmert
-  Date: 9.10.2020
-  Time: 11:24
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix ="form" uri ="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <meta http-equiv="Content-Type" content = "text/html; charset = utf-8">
+    <title> delete new owner</title>
+</head>
+<body>
+<form:form modelAttribute = "owner" method = "post">
+    First name: <form:input path = "firstName"/><br>
+    Last name : <form:input path = "lastName"/> <br>
+    <form:button name = "submit"> delete owner </form:button>
+</form:form>
+</body>
 </html>
