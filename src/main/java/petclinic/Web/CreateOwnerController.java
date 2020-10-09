@@ -19,6 +19,11 @@ public class CreateOwnerController {
         return "createOwner";
     }
 
+    @ModelAttribute
+    public Owner initModel(){
+        return new Owner();
+    }
+
     @RequestMapping(value = "/owners/createOwner", method = RequestMethod.POST)
     public String handleCreateForm(@ModelAttribute Owner owner){
         petClinicService.createOwner(owner);
