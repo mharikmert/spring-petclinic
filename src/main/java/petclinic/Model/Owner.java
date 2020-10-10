@@ -1,5 +1,6 @@
 package petclinic.Model;
 
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -8,9 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "t_owner")
 public class Owner {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "petClinicSeqGen")
-    @SequenceGenerator(name = "petClinicSeqGen", sequenceName = "petclinic_sequence")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "first_name")
@@ -23,7 +22,6 @@ public class Owner {
     private Set<Pet> pets = new HashSet<>();
 
     public Owner(){
-
     }
     public Owner(String firstName, String lastName, Long id){
         this.id = id;
