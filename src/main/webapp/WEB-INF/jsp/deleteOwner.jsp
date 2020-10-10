@@ -8,10 +8,10 @@
     <title> delete new owner</title>
 </head>
 <body>
-<form:form modelAttribute = "owner" method = "post">
-    First name: <form:input path = "firstName"/><br>
-    Last name : <form:input path = "lastName"/> <br>
-    <form:button name = "submit"> delete owner </form:button>
-</form:form>
+    <form:form modelAttribute = "owner" method = "post">
+        First name: <form:input path = "firstName"/><br>
+        Last name : <form:input path = "lastName"/> <br>
+        <form:button name = "submit"> delete owner </form:button>
+    </form:form>
 </body>
 </html>
