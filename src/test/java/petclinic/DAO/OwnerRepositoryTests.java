@@ -34,7 +34,7 @@ public class OwnerRepositoryTests {
     }
     @Test @Commit
     public void testCreateOwner(){
-        Owner owner = new Owner("test","user", 10L);
+        Owner owner = new Owner("test","user", 3L);
         Owner owner2 = new Owner();
         owner2.setFirstName(null);
         owner2.setLastName(null);
