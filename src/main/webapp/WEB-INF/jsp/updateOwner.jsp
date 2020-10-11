@@ -14,8 +14,10 @@
 <body>
     <%--@elvariable id="owner" type="petclinic"--%>
     <form:form modelAttribute = "owner" method = "post">
-        First name: <form:input path = "firstName"/><br>
-        Last name : <form:input path = "lastName"/> <br>
+        First name: <form:input path = "firstName"/>
+        <form:errors path="firstName" cssStyle = "color:#ff0000"/> <br>
+        Last name : <form:input path = "lastName"/>
+        <form:errors path ="lastName" cssStyle = "color:#ff0000"/> <br>
         <form:button name = "submit"> update owner </form:button>
     </form:form>
 </body>
