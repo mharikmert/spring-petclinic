@@ -1,20 +1,22 @@
 package petclinic.Model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "t_owner")
 public class Owner {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "first_name")
+    @NotEmpty(message = "first name can't be empty")
     private String firstName;
 
+    @NotEmpty(message = "last name can't be empty")
     @Column(name = "last_name")
     private String lastName;
 
