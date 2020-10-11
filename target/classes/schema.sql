@@ -8,7 +8,7 @@ create table authorities(
     authority varchar(128)
 );
 CREATE TABLE t_owner(
-    id bigint not null primary key auto_increment,
+    id bigint primary key auto_increment,
     first_name VARCHAR(255) not null,
     last_name VARCHAR(255) not null
 );
