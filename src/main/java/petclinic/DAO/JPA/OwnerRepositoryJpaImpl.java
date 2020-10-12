@@ -32,13 +32,12 @@ public class OwnerRepositoryJpaImpl  implements OwnerRepository {
     }
     @Override
     public void createOwner(Owner owner) {
-        entityManager.merge(owner);
+        entityManager.persist(owner);
     }
     @Override
     public Owner updateOwner(Owner owner) {
         return entityManager.merge(owner);
     }
-
     @Override
     public void deleteOwner(Long id) {
         entityManager.remove(entityManager.getReference(Owner.class, id));
