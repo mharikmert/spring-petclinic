@@ -1,6 +1,8 @@
 package petclinic.Service.PetClinicServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,6 +22,10 @@ public class PetClinicServiceImpl implements PetClinicService {
 
     private OwnerRepository ownerRepository;
     private PetRepository petRepository;
+    private JavaMailSender javaMailSender;
+
+    @Autowired
+    public void setJavaMailSender(JavaMailSender javaMailSender){this.javaMailSender = javaMailSender;}
 
     @Autowired
     public void setOwnerRepository(OwnerRepository ownerRepository) {
@@ -51,6 +57,13 @@ public class PetClinicServiceImpl implements PetClinicService {
     @Override
     public void createOwner(Owner owner) {
         ownerRepository.createOwner(owner);
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("from@email.com");
+        message.setTo("to@email.com");
+        message.setSubject("Owner created");
+        message.setText("owner entity with id: " + owner.getId());
+        javaMailSender.send(message);
     }
     @Override
     public Owner update(Owner owner) {
@@ -61,6 +74,5 @@ public class PetClinicServiceImpl implements PetClinicService {
         petRepository.deleteByOwnerId(id); // deleting pets first
         ownerRepository.deleteOwner(id); //then delete the owner
         //throw new RuntimeException("transactional rollback"); // throw an unchecked exception for rollback
-
     }
 }
