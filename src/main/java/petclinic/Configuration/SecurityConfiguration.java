@@ -34,6 +34,6 @@ public class SecurityConfiguration  extends AbstractSecurityConfiguration {
             .loginProcessingUrl("/login") //submit uri
             .failureForwardUrl("/login.html?loginFailed=true"); //authentication failure
         http.rememberMe().userDetailsService(userDetailsService); //remember be ability
-        http.httpBasic(); // enabling basic authentication
+//        http.httpBasic(); // enabling basic authentication
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 @Order(value = 1)
 @Configuration
-public abstract class RestSecurityConfiguration extends AbstractSecurityConfiguration{
+public class RestSecurityConfiguration extends AbstractSecurityConfiguration{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http);
