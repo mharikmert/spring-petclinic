@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import petclinic.Exceptions.OwnerNotFoundException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import petclinic.Service.PetClinicService;
 
 import petclinic.Model.Owner;
@@ -27,10 +27,12 @@ public class UpdateOwnerController {
     }
 
     @RequestMapping(value = "/owners/update/{id}", method = RequestMethod.POST)
-    public String handleUpdateForm(@ModelAttribute @Validated Owner owner, BindingResult bindingResult){
+    public String handleUpdateForm(@ModelAttribute @Validated Owner owner, BindingResult bindingResult,
+RedirectAttributes redirectAttributes){
         if(bindingResult.hasErrors())
             return "updateOwner";
         petClinicService.update(owner);
+        redirectAttributes.addFlashAttribute("message", "Owner updated with id : " + owner.getId());
         return "redirect:/owners";
     }
 }

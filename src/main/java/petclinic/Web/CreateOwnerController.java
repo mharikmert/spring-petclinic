@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import petclinic.Model.Owner;
 import petclinic.Service.PetClinicService;
 
@@ -27,10 +28,13 @@ public class CreateOwnerController {
     }
 
     @RequestMapping(value = "/owners/createOwner", method = RequestMethod.POST)
-    public String handleCreateForm(@ModelAttribute @Validated Owner owner, BindingResult bindingResult){
+    public String handleCreateForm(@ModelAttribute @Validated Owner owner, BindingResult bindingResult,
+    RedirectAttributes redirectAttributes){
         if(bindingResult.hasErrors())
             return "createOwner";
         petClinicService.createOwner(owner);
+        System.out.println("owner's info: " + owner.getFirstName() + owner.getLastName() + owner.getId());
+        redirectAttributes.addFlashAttribute("message","Owner created with id : " + owner.getId());
         return "redirect:/owners";
     }
 
