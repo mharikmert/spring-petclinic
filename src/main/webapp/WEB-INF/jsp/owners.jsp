@@ -24,5 +24,10 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<c:if test="${not empty message}">
+		<div>
+			${message}
+		</div>
+	</c:if>
 </body>
 </html>
