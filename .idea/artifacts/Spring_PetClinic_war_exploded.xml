@@ -89,7 +89,6 @@
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.3" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:2.3.3" />
           <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.11" />
-          <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:1.2.2" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.2.9.RELEASE" />
@@ -109,6 +108,10 @@
           <element id="library" level="project" name="Maven: org.glassfish:jakarta.el:3.0.3" />
           <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.1.5.Final" />
           <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-mail:2.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: com.sun.mail:jakarta.mail:1.6.5" />
+          <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:1.2.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">
