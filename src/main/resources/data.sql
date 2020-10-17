@@ -33,3 +33,8 @@ INSERT INTO t_pet (id,name,birth_date,owner_id) VALUES (10, 'Karaburun', '2009-0
 INSERT INTO t_pet (id,name,birth_date,owner_id) VALUES (11, 'Twetty', '2000-03-09', 7);
 INSERT INTO t_pet (id,name,birth_date,owner_id) VALUES (12, 'Tarçın', '2000-06-24', 8);
 INSERT INTO t_pet (id,name,birth_date,owner_id) VALUES (13, 'Sarı', '2002-06-08', 9);
+
+INSERT INTO t_vet (id,first_name,last_name) VALUES (14, 'Ali', 'Nazik');
+INSERT INTO t_vet (id,first_name,last_name) VALUES (15, 'İmam', 'Bayıldı');
+INSERT INTO t_vet (id,first_name,last_name) VALUES (16, 'Karnı', 'Yarık');
+
