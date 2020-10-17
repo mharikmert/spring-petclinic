@@ -20,7 +20,7 @@ public class DeleteOwnerController {
 
     @RequestMapping(value = "/owners/delete/{id}", method = RequestMethod.GET)
     public String loadOwner(@PathVariable Long id, ModelMap modelMap){
-        Owner owner = petClinicService.findOwner(id);
+            Owner owner = petClinicService.findOwner(id);
         modelMap.put("owner", owner);
         return "deleteOwner";
     }
