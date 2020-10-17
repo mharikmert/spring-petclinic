@@ -10,7 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import petclinic.DAO.OwnerRepository;
 import petclinic.DAO.PetRepository;
+import petclinic.DAO.VetRepository;
 import petclinic.Exceptions.OwnerNotFoundException;
+import petclinic.Exceptions.VetNotFoundException;
+import petclinic.Model.Vet;
 import petclinic.Service.PetClinicService;
 import petclinic.Model.Owner;
 
@@ -22,7 +25,9 @@ public class PetClinicServiceImpl implements PetClinicService {
 
     private OwnerRepository ownerRepository;
     private PetRepository petRepository;
+    private VetRepository vetRepository;
     private JavaMailSender javaMailSender;
+
 
     @Autowired
     public void setJavaMailSender(JavaMailSender javaMailSender){this.javaMailSender = javaMailSender;}
@@ -34,6 +39,9 @@ public class PetClinicServiceImpl implements PetClinicService {
 
     @Autowired
     public void setPetRepository(PetRepository petRepository) {this.petRepository = petRepository;}
+
+    @Autowired
+    public void setVetRepository(VetRepository vetRepository){this.vetRepository = vetRepository;}
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -74,5 +82,20 @@ public class PetClinicServiceImpl implements PetClinicService {
         petRepository.deleteByOwnerId(id); // deleting pets first
         ownerRepository.deleteOwner(id); //then delete the owner
         //throw new RuntimeException("transactional rollback"); // throw an unchecked exception for rollback
+    }
+
+    @Override
+    public List<Vet> findVets() {
+        return vetRepository.findAll();
+    }
+
+    @Override
+    public Vet findVetById(Long id) throws VetNotFoundException {
+        try{
+            return vetRepository.findVetById(id);
+        } catch(VetNotFoundException ex){
+            ex.printStackTrace();
+        }
+        return null;
     }
 }
