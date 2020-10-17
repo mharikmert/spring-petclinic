@@ -20,5 +20,10 @@ CREATE TABLE t_pet(
     owner_id BIGINT
 );
 
+create table t_vet(
+    id bigint primary key auto_increment,
+    first_name varchar(255),
+    last_name varchar(355)
+);
 ALTER TABLE t_pet ADD  CONSTRAINT CONSTRAINT_3 FOREIGN KEY(owner_id)  REFERENCES t_owner(id);
 
