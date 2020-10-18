@@ -7,10 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "t_owner")
-public class Owner {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Owner extends BaseEntity{
 
     @Column(name = "first_name")
     @NotEmpty(message = "first name can't be empty")
@@ -26,16 +23,9 @@ public class Owner {
     public Owner(){
     }
     public Owner(String firstName, String lastName, Long id){
-        this.id = id;
+        id = super.getId();
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -64,7 +54,7 @@ public class Owner {
     @Override
     public String toString() {
         return "Owner{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
