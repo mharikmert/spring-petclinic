@@ -14,7 +14,7 @@ CREATE TABLE t_owner(
 );
 
 CREATE TABLE t_pet(
-    id BIGINT NOT NULL primary key,
+    id BIGINT NOT NULL primary key auto_increment,
     name VARCHAR(255),
     birth_date DATE,
     owner_id BIGINT
@@ -26,4 +26,5 @@ create table t_vet(
     last_name varchar(355)
 );
 ALTER TABLE t_pet ADD  CONSTRAINT CONSTRAINT_3 FOREIGN KEY(owner_id)  REFERENCES t_owner(id);
+ALTER TABLE t_vet ADD  CONSTRAINT CONSTRAINT_11 FOREIGN KEY(id)  REFERENCES t_owner(id);
 
