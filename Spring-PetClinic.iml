@@ -70,12 +70,6 @@
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.5.5" level="project" />
     <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.latencyutils:LatencyUtils:2.0.3" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-rest:2.3.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-webmvc:3.3.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-core:3.3.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.atteo:evo-inflector:1.2.2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.2" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-hateoas:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.hateoas:spring-hateoas:1.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.9.RELEASE" level="project" />
@@ -179,5 +173,12 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:jakarta.mail:1.6.5" level="project" />
     <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-rest:2.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-webmvc:3.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-core:3.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.atteo:evo-inflector:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-hal-explorer:3.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
   </component>
 </module>
