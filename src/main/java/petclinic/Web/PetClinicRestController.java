@@ -1,6 +1,7 @@
 package petclinic.Web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
 import org.springframework.hateoas.Link;
@@ -29,8 +30,11 @@ public class PetClinicRestController {
 	public void setPetClinicService(PetClinicService petClinicService) {
 		this.petClinicService = petClinicService;
 	}
-    @RequestMapping(method = RequestMethod.GET, value = "/owners")
+
+	@Cacheable("allOwners")
+	@RequestMapping(method = RequestMethod.GET, value = "/owners")
     public ResponseEntity<List<Owner>> getOwners(){
+		System.out.println(">>>>>>inside get Owners"); // testing method level caching
 		List<Owner> owners = petClinicService.findOwners();
         return ResponseEntity.ok(owners);
     }
