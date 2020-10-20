@@ -80,9 +80,6 @@
           <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.5.1" />
           <element id="library" level="project" name="Maven: org.dom4j:dom4j:2.1.3" />
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final" />
-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.3" />
-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:2.3.3" />
-          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.11" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:2.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.2.9.RELEASE" />
@@ -113,6 +110,11 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.2" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-rest-hal-explorer:3.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-cache:2.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.ehcache:ehcache:3.8.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.3" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:2.3.3" />
+          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.11" />
         </element>
       </element>
       <element id="directory" name="META-INF">
