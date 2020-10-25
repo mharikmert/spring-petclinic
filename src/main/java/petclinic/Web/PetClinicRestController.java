@@ -18,6 +18,7 @@ import petclinic.Exceptions.OwnerNotFoundException;
 import petclinic.Service.PetClinicService;
 import petclinic.Model.Owner;
 
+import javax.validation.ConstraintViolationException;
 import java.net.URI;
 import java.util.List;
 
@@ -92,7 +93,11 @@ public class PetClinicRestController {
         	Long id = owner.getId();
         	URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
     		return ResponseEntity.created(location).build();
-    	}catch(Exception ex) {
+    	}
+    	catch(ConstraintViolationException ex){ // if owner creates with empty firstname or lastname
+    		return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).build();
+		}
+    	catch(Exception ex) {
     		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     	}
     }
