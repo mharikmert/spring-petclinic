@@ -7,6 +7,7 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.client.RestClientException;
@@ -75,4 +76,13 @@ class ControllerTests {
 			ex.printStackTrace();
 		}
 	}
+	@Test
+	public void testServiceLevelValidation(){
+		Owner owner = new Owner(); // to see the exception
+		/*owner.setFirstName("first");
+		owner.setLastName("last");*/
+		ResponseEntity<URI> responseEntity = restTemplate.postForEntity(restLocation + "owner", owner,URI.class);
+		MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.equalTo(HttpStatus.PRECONDITION_FAILED));
+	}
 }
+
